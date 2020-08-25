@@ -1,1 +1,1 @@
-## This is basic image processing process for Deep Learning
+## This is Basic Image Processing Process for Deep Learning
