@@ -1,4 +1,3 @@
 ## This is Haar-cascade Detection for face and eye.
 
-![GitHub Logo](/result.png)
-Format: ![Alt Text](url)
+![alt text](http://url/to/imgages/marathon_01.jpg)
