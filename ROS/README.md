@@ -9,7 +9,7 @@
 <br/>
 <br/>
 
-The reason why you have to know both of languages because there are packages only written by c++ and python. If you were to write your own package, you can consider the advantage of two languages to stand out.
+The reason why you have to know both of languages because there are packages ``only written by c++ and python``. If you were to write your own package, you can consider the advantage of two languages to stand out.
 
 ### 2. Network Communication.
 Within ROS, 
