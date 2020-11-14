@@ -1,8 +1,8 @@
 # **ROS - Robotic Operating System**
 
-## Two knowledge requirements
-1. Be familiar with C++.
-2. Be fluent in python.
+## Two knowledge or language requirements
+<img align="left" alt="Python" width="30px" src="https://img.icons8.com/color/48/000000/python.png" />
+<img align="left" alt="C++" width="30px" src="https://img.icons8.com/color/48/000000/c-plus-plus-logo.png"/>
 
 ## Best Environments & Installation.
 * Linux/Unix Machine(Ubuntu or Lubuntu 16.04) is compatible with ROS kinnetic (More stable by my experience)
