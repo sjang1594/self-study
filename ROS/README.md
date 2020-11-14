@@ -1,9 +1,7 @@
 # **ROS - Robotic Operating System**
 
-## Two knowledge or language requirements
-``1. Language``
-
-<br/>
+## Two knowledges or languages requirements
+**1. Language**
 
 <img align="left" alt="Python" width="30px" src="https://img.icons8.com/color/48/000000/python.png" />
 <img align="left" alt="C++" width="30px" src="https://img.icons8.com/color/48/000000/c-plus-plus-logo.png"/>
