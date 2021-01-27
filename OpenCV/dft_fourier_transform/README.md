@@ -2,5 +2,5 @@
 
 ## The result image for Descrete Fourier Transform.
 <p align="center">
-  <img src="../images/result-haarcascade.png" width="400" height="350" >
+  <img src="../images/result.PNG" width="400" height="350" >
 </p>
