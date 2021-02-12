@@ -1,6 +1,6 @@
 ## OpenCV - Image Processing & Deep Learning.
 
-### Language - Python.
+### Language - Python & C++
 
 ### Objectives
 1. Learn how to use basic operations on image/video, such as cropping, resizing, and splitting the channels
@@ -12,3 +12,5 @@
    1. Reference : [OpenCV YOLO](https://docs.opencv.org/master/da/d9d/tutorial_dnn_yolo.html)
    2. Reference : [YOLO Website](https://pjreddie.com/darknet/yolo/)
 
+### OpenCV (C++) Note:
+Reference : http://study.marearts.com/
