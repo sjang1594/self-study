@@ -1,3 +1,0 @@
-C:/Users/skcjf/Github_REPO/self-study/OpenCV/Make_mask/cmake-build-debug/CMakeFiles/Mask.dir
-C:/Users/skcjf/Github_REPO/self-study/OpenCV/Make_mask/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/skcjf/Github_REPO/self-study/OpenCV/Make_mask/cmake-build-debug/CMakeFiles/rebuild_cache.dir
