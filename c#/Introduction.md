@@ -12,7 +12,7 @@
 
 ## Process of C# 
 
-![compilling](/Users/seunghojang/project/self-study/c#/compilling.png)
+![compilling](/Users/seunghojang/project/self-study/c#/img/compilling.png)
 
 **Summary**
 
