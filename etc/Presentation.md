@@ -68,7 +68,7 @@ The repository for this private for a reason. Contact me if you want the source 
 
 * **Udacity - Robotic Software Engineering**
 
-`Environment : Ubuntu 18.04`,`ROS Melodic`
+`Environment : Ubuntu 18.04`, `ROS Melodic`,
 `Language : C++`
 
 1. [Build a Simulation World with Gazebo](https://github.com/sjang1594/RoboND-Udacity/tree/master/Robotics-UD-MyWorld)
@@ -79,7 +79,7 @@ The repository for this private for a reason. Contact me if you want the source 
 
 * **Image Processing / Computer Vision Projects**
 
-`Environment : Windows 10 / Ubuntu 18.04`,`Visual Studio 2019 & CLion`, `OpenCV4 & CUDA 11.3` ,`cmake`
+`Environment : Windows 10 / Ubuntu 18.04`, `Visual Studio 2019 & CLion`, `OpenCV4 & CUDA 11.3`, `CMAKE`,
 `Language : C++`
 
 1. [Poter Duff Operation](https://github.com/sjang1594/UMSL/tree/master/CS6420/project1)
@@ -91,7 +91,7 @@ The repository for this private for a reason. Contact me if you want the source 
 
 * **Udacity - C++ (Not completed)**
 
-`Environment : Ubuntu 20.04`,`Visual Studio Code`,`CMAKE`
+`Environment : Ubuntu 20.04`, `Visual Studio Code`, `CMAKE`,
 `Language : C++`
 
 1. [Route Planning Project](https://github.com/sjang1594/CppND_Udacity/tree/master/CppND-Route-Planning-Project)
@@ -103,7 +103,7 @@ Build the software system and algorithm to detect the root system from the given
 
 * **Udacity - Computer Vision (Completed)**
 
-`Environment : Jupyter Notebook`,`OpenCV4`,`Framework: Pytorch`
+`Environment : Jupyter Notebook`, `OpenCV4`, `Framework: Pytorch`,
 `Language : Python`
 
 1. [Facial Keypoints - Eye & Face Recognition](https://github.com/sjang1594/cvnn-udacity/tree/master/P1-Facial_KeyPoints)
