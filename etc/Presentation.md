@@ -37,7 +37,7 @@ Conic Method : Recording & Filtering the brain signals(inputs) to the system usi
 * **Ambient Care System with Amazon Alexa**
 
 1. Build the Raw Activity Data Schema/Data Analytics
-2. Build LSTM Deep Learning Model for Sentimental Analysis
+2. Build the LSTM Deep Learning Model for Sentimental Analysis
 
 [Project Repo](https://github.com/sntrenter/FA2020GroupProject) and [Presentation Video](https://vimeo.com/490250102/2e52524b6a)
 
