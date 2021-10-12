@@ -78,7 +78,7 @@ The repository for this private for a reason. Contact me if you want the source 
 
 * **Image Processing / Computer Vision Projects**
 
-`Environment : Windows 10 / Ubuntu 18.04`,`Visual Studio 2019 & CLion,`OpenCV4 & CUDA 11.3`,`cmake`
+`Environment : Windows 10 / Ubuntu 18.04`,`Visual Studio 2019 & CLion`, `OpenCV4 & CUDA 11.3` ,`cmake`
 `Language : C++`
 
 1. [Poter Duff Operation](https://github.com/sjang1594/UMSL/tree/master/CS6420/project1)
