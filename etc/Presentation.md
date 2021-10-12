@@ -10,7 +10,7 @@ Seungho Jang (장승호)
 <center>Major : Computer Science & Electrical Engineering</center>
 
 ## Background
-
+>
 > B.S.EE in Electrical Engineering(전기 전자 공학) - Radar/Signal System
 > Minor in Computer Science and Mathematics
 >
