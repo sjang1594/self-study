@@ -30,17 +30,17 @@ Seungho Jang (장승호)
 
 * **RFID Door Lock - JEC2000**  
 
-[RFID Presentation](https://docs.google.com/presentation/d/1wkD3lbgjXfVELOVWqM9DJZEWWYUbUHfj-QLO51gSbvI/edit#slide=id.g47eb0409b1_1_0)
+> [RFID Presentation](https://docs.google.com/presentation/d/1wkD3lbgjXfVELOVWqM9DJZEWWYUbUHfj-QLO51gSbvI/edit#slide=id.g47eb0409b1_1_0)
 
 * **XYZ - Camera Controller - Senior Project**
 
-[XYZ Camera Controller](https://docs.google.com/presentation/d/11eDE-hOqh-xyiRGRCgn5WrCFYZxG8LSMyEVw1EaX5zw/edit#slide=id.g489ac9f632_0_10)
+> [XYZ Camera Controller](https://docs.google.com/presentation/d/11eDE-hOqh-xyiRGRCgn5WrCFYZxG8LSMyEVw1EaX5zw/edit#slide=id.g489ac9f632_0_10)
 
 * **BCI(Brain Computing Interface) Data Augmentation & Filtering**
 
 `Summer Research Program : Washington University in St. Louis - in ShiNung Ching Lab (Undergrads)`
 
-Conic Method : Recording & Filtering the brain signals(inputs) to the system using the signal processing techniques
+> Conic Method : Recording & Filtering the brain signals(inputs) to the system using the signal processing techniques
 
 * **Ambient Care System with Amazon Alexa**
 
