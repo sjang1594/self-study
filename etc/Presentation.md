@@ -1,13 +1,5 @@
-* * *
-<center>
-<span style=
-"font-size:150%;
-font-weight:bold">
+***
 Seungho Jang (장승호)
-</span>
-</center>
-
-<center>Major : Computer Science & Electrical Engineering</center>
 
 ## Background
 >
