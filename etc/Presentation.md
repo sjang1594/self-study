@@ -11,7 +11,7 @@ Seungho Jang (장승호)
 
 ## Background
 >
-> B.S.EE in Electrical Engineering(전기 전자 공학) - Radar/Signal System
+> B.S.EE in Electrical Engineering(전기 전자 공학) - Radar/Signal System,
 > Minor in Computer Science and Mathematics
 >
 > M.S in Compputer Science - Deep Learning / Computer Vision
