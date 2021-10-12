@@ -19,10 +19,10 @@ Seungho Jang (장승호)
 ## Current Interests
 
 * Computer Vision
-  		+ Object Dtection
-  		+ Depth Prediction
-  		+ Pose Estimation
-  		+ VR / AR (Recent)
+    + Object Detection
+    + Depth Prediction
+    + Pose Estimation
+    + AR / VR
 
 ## Projects
 
