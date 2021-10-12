@@ -100,6 +100,7 @@ The repository for this private for a reason. Contact me if you want the source 
 * **Root Analysis (In progress for publication)**
 
 Build the software system and algorithm to detect the root system from the given the root imageries.
+[Presentation](https://docs.google.com/presentation/d/1iT_VpKcauXT-aHUnV5uKx-coytGehrFk1hEpc7Iqpqw/edit#slide=id.p)
 
 * **Udacity - Computer Vision (Completed)**
 
