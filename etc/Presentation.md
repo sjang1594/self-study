@@ -52,7 +52,8 @@ Conic Method : Recording & Filtering the brain signals(inputs) to the system usi
 
 * **Operating System/System Programming - CS4760**
 
-`Environment: Linux Terminal`, `Language : C`
+`Environment: Linux Terminal`, 
+`Language : C`
 
 Learning Linux Environment and Resource/Process/Memory Managements written in C.
 
