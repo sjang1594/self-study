@@ -94,7 +94,7 @@ namespace CSharp
                 case "2":
                     TryEscape();
                     break;
-            }    
+            }
         }
 
         private void CreateRandomMonster()

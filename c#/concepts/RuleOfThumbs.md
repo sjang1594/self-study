@@ -119,7 +119,7 @@ namespace CSharp
 
 ```c#
 /*
- * Constructor : 
+ * Constructor :
  */
 using System;
 
@@ -157,7 +157,7 @@ namespace CSharp
           this.attack = attack;
           Console.WriteLine("int, int constructor is called");
         }
-      
+
         public Knight Clone()
         {
             Knight knight = new Knight();
@@ -178,8 +178,8 @@ namespace CSharp
     }
 
     class Program
-    { 
-        static void Main(string[] args) 
+    {
+        static void Main(string[] args)
         {
             Knight knight = new Knight(50, 5);
         }
@@ -196,7 +196,7 @@ It's good to observe the one that isn't static.
 
 ```c#
 /*
- * Static : 
+ * Static :
  */
 using System;
 
@@ -227,7 +227,7 @@ namespace CSharp
           this.attack = attack;
           Console.WriteLine("int, int constructor is called");
         }
-      
+
         public Knight Clone()
         {
             Knight knight = new Knight();
@@ -248,8 +248,8 @@ namespace CSharp
     }
 
     class Program
-    { 
-        static void Main(string[] args) 
+    {
+        static void Main(string[] args)
         {
           // When the instance is created,
           // knight can use the its hp and attack.
@@ -266,7 +266,7 @@ Let's make an assumption.
 
 ```c#
 /*
- * Static : 
+ * Static :
  */
 using System;
 
@@ -277,10 +277,10 @@ namespace CSharp
         // These two are called field.
         public int hp;
         public int attack;
-				
+
         //**STATIC**//
       	static public int a;
-      
+
    			// Constructor
         public Knight()
         {
@@ -291,21 +291,21 @@ namespace CSharp
     }
 
     class Program
-    { 
-        static void Main(string[] args) 
+    {
+        static void Main(string[] args)
         {
           // When the instance is created,
           // knight can use the its hp and attack.
           // In other word, each instance can hold its
           // field.
           Knight knight1 = new Knight();
-          
+
           Knight knight2 = new Knight();
           knight2.hp = 80;
-          
+
           Knight knight3 = new Knight();
           knight3.hp = 200;
-          
+
           // Then, what happen to an static variable a?
         }
     }
@@ -316,11 +316,11 @@ The static variable `a` means that each instance that are created(`knight1`,`kni
 
 **Then, why do we need it ?**
 
-Let's assume that we have a player id that we would like to increment 
+Let's assume that we have a player id that we would like to increment
 
 ```c#
 /*
- * Static : 
+ * Static :
  */
 using System;
 
@@ -329,14 +329,14 @@ namespace CSharp
     class Knight
     {
         // These two are called field.
-        
+
         public int hp;
         public int attack;
         public int id;
-				
+
         //**STATIC**//
       	static public int counter = 1;
-        
+
    			// Constructor
         public Knight()
         {
@@ -349,21 +349,21 @@ namespace CSharp
     }
 
     class Program
-    { 
-        static void Main(string[] args) 
+    {
+        static void Main(string[] args)
         {
           // When the instance is created,
           // knight can use the its hp and attack.
           // In other word, each instance can hold its
           // field.
           Knight knight1 = new Knight();
-          
+
           Knight knight2 = new Knight();
           knight2.hp = 80;
-          
+
           Knight knight3 = new Knight();
           knight3.hp = 200;
-          
+
           // Then, what happen to an static variable a?
         }
     }
@@ -383,16 +383,16 @@ namespace CSharp
     class Knight
     {
         // These two are called field.
-        
+
         public int hp;
         public int attack;
         public int id;
-				
+
         //**STATIC**//
       	static public int counter = 1;
-        
+
         //Static Function & Non-static Function
-        // The static function `staticTest()` is 
+        // The static function `staticTest()` is
         // subordinated by the class "knight"
         // Also, static function cannot access to the
         // attributes, but static variable can be accessed.
@@ -402,11 +402,11 @@ namespace CSharp
           //this.attack = 100
           counter++;
         };
-        
+
         // But, nonstatTest function can be accessed by
-        // Any instances that are created. In other word, this function is dependent on each instance. 
+        // Any instances that are created. In other word, this function is dependent on each instance.
         public void nonstatTest(){};
-        
+
         //** Just the fact that you put static in front of function does not mean that this function cannot access to instance.
         //Ex
         static public Knight CreateKnight(){
@@ -415,7 +415,7 @@ namespace CSharp
           knight.attack = 1;
           return knight
         }
-        
+
    			// Constructor
         public Knight()
         {
@@ -426,28 +426,28 @@ namespace CSharp
             Console.WriteLine("Call Constructor");
         }
     }
-    
+
 
     class Program
-    { 
-        static void Main(string[] args) 
+    {
+        static void Main(string[] args)
         {
           // When the instance is created,
           // knight can use the its hp and attack.
           // In other word, each instance can hold its
           // field.
           Knight knight1 = new Knight();
-          
+
           Knight knight2 = new Knight();
           knight2.hp = 80;
-          
+
           Knight knight3 = new Knight();
           knight3.hp = 200;
-          
+
           //How to call the static function then?
           Knight knight = Knight.CreateKnight();
           knight.Move();
-          
+
           // For example.
           // Console.WriteLine() --> static function
           // This is non-static function
@@ -537,7 +537,7 @@ namespace CSharp
     }
 
     class Knight : Player
-    { 
+    {
         public Knight() { Console.WriteLine("Knight Constructor is called");}
 
         static public Knight CreateKnight()
@@ -550,8 +550,8 @@ namespace CSharp
     }
 
     class Program
-    { 
-        static void Main(string[] args) 
+    {
+        static void Main(string[] args)
         {
             Knight knight = new Knight();
         }
@@ -559,7 +559,7 @@ namespace CSharp
 }
 ```
 
-The output looks like this 
+The output looks like this
 
 ```c#
 Player Constructor is called
@@ -586,7 +586,7 @@ namespace CSharp
         public int attack;
 
         public Player() { Console.WriteLine("Player Constructor is called"); }
-				
+
       	// Overloading //
         public Player(int hp, int attack)
         {
@@ -610,7 +610,7 @@ namespace CSharp
     {
         // Variable in Parent Class
         base.hp = 100
-        // Use the keyword for base, which is for 'Player'(Parent) Class 
+        // Use the keyword for base, which is for 'Player'(Parent) Class
         public Knight() : base(100, 50)
         { Console.WriteLine("Knight Constructor is called"); }
 
@@ -688,7 +688,7 @@ namespace CSharp
 
 ## **Hiding**
 
-Why do we need to hide ? The purpose of this is not giving the permission or access to the data or calculation inside. This is why we need to hide things. For example, there are handle, wheels, some etcs that can be visible for drivers. However, the manufacturers are required to hide how the engines works with other devices to secure from drivers. 
+Why do we need to hide ? The purpose of this is not giving the permission or access to the data or calculation inside. This is why we need to hide things. For example, there are handle, wheels, some etcs that can be visible for drivers. However, the manufacturers are required to hide how the engines works with other devices to secure from drivers.
 
 ### **Access Modifier**
 
@@ -705,7 +705,7 @@ Why do we need to hide ? The purpose of this is not giving the permission or acc
 class Mage
     {
         private int skillNum;
-        protected int skillTree;  
+        protected int skillTree;
 
         private void spawnSecretWeapon()
         {
@@ -714,16 +714,16 @@ class Mage
             Console.WriteLine("Spawning.. Secret Weapon");
         }
 
-        // Setter & Getter 
+        // Setter & Getter
         public void SetSkillNum(int skillNum)
         {
             this.skillNum = skillNum;
         }
 
     }
-    
+
     class Sorcerer : Mage
-    { 
+    {
         void setSkillTree()
         {
             skillTree = 2;
@@ -823,7 +823,7 @@ namespace CSharp
         }
     }
 }
- 
+
 ```
 
 ### **Example of 'Null'**
@@ -831,7 +831,7 @@ namespace CSharp
 ```c#
 static Player FindPlayerByid(int id){
   // Search the player by ID
-  
+
   // If not found, return null
   return null;
 }
