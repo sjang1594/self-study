@@ -1,28 +1,20 @@
-* * *
-<center>
-<span style=
-"font-size:150%;
-font-weight:bold">
-Seungho Jang (장승호)
-</span>
-</center>
-
-<center>Major : Computer Science & Electrical Engineering</center>
+***
+## Seungho Jang (장승호)
 
 ## Background
-
-> B.S.EE in Electrical Engineering(전기 전자 공학) - Radar/Signal System
+>
+> B.S.EE in Electrical Engineering(전기 전자 공학) - Radar/Signal System,
 > Minor in Computer Science and Mathematics
 >
 > M.S in Compputer Science - Deep Learning / Computer Vision
 
 ## Current Interests
 
-* Computer Vision
-  		+ Object Dtection
-  		+ Depth Prediction
-  		+ Pose Estimation
-  		+ VR / AR (Recent)
+* Computer Vision & Deep Learning
+    + Object Detection
+    + Depth Prediction
+    + Pose Estimation
+    + AR / VR
 
 ## Projects
 
@@ -45,14 +37,15 @@ Conic Method : Recording & Filtering the brain signals(inputs) to the system usi
 * **Ambient Care System with Amazon Alexa**
 
 1. Build the Raw Activity Data Schema/Data Analytics
-2. Build LSTM Deep Learning Model for Sentimental Analysis
+2. Build the LSTM Deep Learning Model for Sentimental Analysis
 
 [Project Repo](https://github.com/sntrenter/FA2020GroupProject) and [Presentation Video](https://vimeo.com/490250102/2e52524b6a)
 
 
 * **Operating System/System Programming - CS4760**
 
-`Environment: Linux Terminal`, `Language : C`
+`Environment: Linux Terminal`, 
+`Language : C`
 
 Learning Linux Environment and Resource/Process/Memory Managements written in C.
 
@@ -67,7 +60,7 @@ The repository for this private for a reason. Contact me if you want the source 
 
 * **Udacity - Robotic Software Engineering**
 
-`Environment : Ubuntu 18.04`,`ROS Melodic`
+`Environment : Ubuntu 18.04`, `ROS Melodic`,
 `Language : C++`
 
 1. [Build a Simulation World with Gazebo](https://github.com/sjang1594/RoboND-Udacity/tree/master/Robotics-UD-MyWorld)
@@ -78,7 +71,7 @@ The repository for this private for a reason. Contact me if you want the source 
 
 * **Image Processing / Computer Vision Projects**
 
-`Environment : Windows 10 / Ubuntu 18.04`,`Visual Studio 2019`& Cion,`OpenCV4 & CUDA 11.3`,`cmake`
+`Environment : Windows 10 / Ubuntu 16.04 & 18.04`, `Visual Studio 2019 & CLion`, `OpenCV4 & CUDA 11.3`, `CMAKE`,
 `Language : C++`
 
 1. [Poter Duff Operation](https://github.com/sjang1594/UMSL/tree/master/CS6420/project1)
@@ -90,7 +83,7 @@ The repository for this private for a reason. Contact me if you want the source 
 
 * **Udacity - C++ (Not completed)**
 
-`Environment : Ubuntu 20.04`,`Visual Studio Code`,`CMAKE`
+`Environment : Ubuntu 20.04`, `Visual Studio Code`, `CMAKE`,
 `Language : C++`
 
 1. [Route Planning Project](https://github.com/sjang1594/CppND_Udacity/tree/master/CppND-Route-Planning-Project)
@@ -100,9 +93,11 @@ The repository for this private for a reason. Contact me if you want the source 
 
 Build the software system and algorithm to detect the root system from the given the root imageries.
 
+[Presentation](https://docs.google.com/presentation/d/1iT_VpKcauXT-aHUnV5uKx-coytGehrFk1hEpc7Iqpqw/edit#slide=id.p)
+
 * **Udacity - Computer Vision (Completed)**
 
-`Environment : Jupyter Notebook`,`OpenCV4`,`Framework: Pytorch`
+`Environment : Jupyter Notebook`, `OpenCV4`, `Framework: Pytorch`,
 `Language : Python`
 
 1. [Facial Keypoints - Eye & Face Recognition](https://github.com/sjang1594/cvnn-udacity/tree/master/P1-Facial_KeyPoints)
