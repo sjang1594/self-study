@@ -66,7 +66,9 @@ namespace CSharp
       // 덫붙인다는 의미가 결국엔, chaining 을 한다는 뜻
       clicked += TestDelegate2
 
-      ButtonPressed(TestDelegate)
+      ButtonPressed(clicked)
+
+      clicked();
     }
   }
 }
