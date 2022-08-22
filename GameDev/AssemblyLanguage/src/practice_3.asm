@@ -10,7 +10,16 @@ CMAIN:
   ; - 배열을 구성하는 각 값을 배열 요소 (element) 이라고 함
   ; - 배열의 위치를 가르키는 숫자를 인덱스(index)라고 함
   mov rax, a ; a 에 대한 value 가 들어가는게 아니라, 주소 값이 들어간다.
+    
+  xor ecx, ecx
 
+LABEL_PRINT_A:
+  PRINT_HEX 1, [a+ecx]
+  NEWLINE
+  inc ecx ; add ecx, 1
+  cmp ecx, 5
+  jne LABEL_PRINT_A
+  
   ; Print all array
   xor rax, rax
   ret
