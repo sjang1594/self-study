@@ -61,3 +61,23 @@ whether they hit. If they don't we simply discard it.
 Use the Bounding Boxes. (Looking at the box of subboxes)
 
 ### Ray Tracing Hardware
+**RT Cores**
+RT Cores Perform:
+* Ray-Bounding Volume Hierarchy (BVH) traversal --> The rays are shooting to the multiple bounding box, and it will return the box that they hits.
+* Ray-triangle intersection --> The rays are shotting to bunch of triangles 
+* Instancing: 1 level
+
+Retrun to streaming multiprocessors for:
+* Multi-level instancing
+* Custom intersection
+* Shading
+
+### The Ray Tracing Pipeline
+**Five Types of Ray Tracing Shaders**
+Ray-tracing pipeline split into *five* shaders:
+* Ray Generation Shader : define how to start tracing rays --> Controls other shaders
+* Intersection Shader(s): define how rays intersect geometry --> Define Object Shapes (one shader per type)
+* Miss Shader(s)        : shading for when rays miss geometry       ___
+* Closest-hit Shader(s) : shading at the intersection point         ___|__ Controls per-ray behavior (often many types)
+* Any-hit Shader(s)     : run once per hit (e.g, for transparency)  ___|
+
