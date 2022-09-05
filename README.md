@@ -12,6 +12,8 @@ This is self studying repository!
 
 ## Pytorch
 
-## DataBase
-
-## AWS
+## Game Development
+1. Assembly Language
+2. Comptuer Graphics
+3. CPP
+4. C#
