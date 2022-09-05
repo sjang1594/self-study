@@ -1,0 +1,25 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "runner": "terminal",
+  "type": "shell",
+  "echoCommand": true,
+  "presentation": {
+    "reveal": "always"
+  },
+  "tasks": [
+    {
+      "label": "save and compile for C++",
+      "command": "g++",
+      "args": [
+        "${file}",
+        "-o",
+        "-g",
+        "${fileDirname}/${fileBasenameNoExtension}"
+      ],
+      "group": "build"
+
+    }
+  ]
+}
