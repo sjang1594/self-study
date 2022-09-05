@@ -5,6 +5,8 @@ The `Ray` is defined by two things, it has origin in some point in space (xyz) a
 
 ![ray](images/ray.JPG)
 
-`Ray Castin` is taking the idea of
+`Ray Casting` is taking the idea of taking that ray and shooting it out in that direction and finding
+what gets hit.
 
 ![rqy](images/ray_casting.JPG)
+``
