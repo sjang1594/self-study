@@ -4,26 +4,30 @@ In order to define the ray tracing, we need to define what is 'Ray'.
 The `Ray` is defined by two things, it has origin in some point in space (xyz) and a direction.
 
 <p align="center">
-  <img src="./images/ray.JPG" width="400" height="350">
+  <img src="./images/ray.JPG" width="400" height="300">
 </p>
 
 `Ray Casting` is taking the idea of taking that ray and shooting it out in that direction and finding
 what gets hit.
 
 <p align="center">
-  <img src="./images/ray_casting.JPG" width="400" height="350">
+  <img src="./images/ray_casting.JPG" width="400" height="300">
 </p>
 
 This isn't the rendering algorithm. This is just the a bsic tool in the toolbox. You can also use `ray casting` between two points so you may say.
 
 <p align="center">
-  <img src="./images/ray_casting.JPG" width="400" height="350">
+  <img src="./images/ray_casting2points.JPG" width="400" height="300">
+</p>
+
+<p align="center">
+  <img src="./images/ray_casting2surfaces.JPG" width="400" height="300">
 </p>
 
 ### Human Eye Perspective
 
 <p align="center">
-  <img src="./images/ray_casting.JPG" width="400" height="350">
+  <img src="./images/rays_from_the_eye.JPG" width="400" height="300">
 </p>
 
 ### Distribution(Stochastic) Ray Tracing
@@ -81,3 +85,12 @@ Ray-tracing pipeline split into *five* shaders:
 * Closest-hit Shader(s) : shading at the intersection point         ___|__ Controls per-ray behavior (often many types)
 * Any-hit Shader(s)     : run once per hit (e.g, for transparency)  ___|
 
+<p align="center">
+  <img src="./images/the_ray_tracing_pipeline.JPG" width="400" height="350">
+</p>
+
+
+### Any Hits
+<p align="center">
+  <img src="./images/the_ray_tracing_simple_pipeline.JPG" width="400" height="350">
+</p>
