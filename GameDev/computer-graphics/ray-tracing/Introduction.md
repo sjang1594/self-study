@@ -171,5 +171,10 @@ the sun's out there, then we add that as an important place to shoot rays. Inste
 ### Denoising for Ray Tracing
 
 
+### Ray Sorting
+
 ### Cool thing about Ray Tracing
 1. Depth of Field --> Background Blur, Foreground Blur, Motion Blur, Atmospheric Effects, Caustics.
+
+### Other References
+[Disney's Practical Guid to Path Tracing](https://www.youtube.com/watch?v=frLwRLS_ZR0&ab_channel=WaltDisneyAnimationStudios)
