@@ -1,5 +1,5 @@
 # Self-Study
-- This is self studying repository!
+This is self studying repository!
 
 ## Languages :
 <img align="left" alt="Python" width="30px" src="https://img.icons8.com/color/48/000000/python.png" />
@@ -12,6 +12,8 @@
 
 ## Pytorch
 
-## DataBase
-
-## AWS
+## Game Development
+1. Assembly Language
+2. Comptuer Graphics
+3. CPP
+4. C#
