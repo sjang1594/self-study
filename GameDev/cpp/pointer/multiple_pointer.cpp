@@ -15,7 +15,7 @@ void SetMessage(const char *a)
 
 void SetMessage(const char **a)
 {
-    a = "Bye";
+    // a = "Bye"; --> Error
 }
 
 void SetMessage1(const char *&a)

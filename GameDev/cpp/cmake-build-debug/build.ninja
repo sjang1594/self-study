@@ -79,6 +79,12 @@ build CMakeFiles/cpp.dir/pointer/multi_dim_array.cpp.o: CXX_COMPILER__cpp_Debug 
   OBJECT_DIR = CMakeFiles/cpp.dir
   OBJECT_FILE_DIR = CMakeFiles/cpp.dir/pointer
 
+build CMakeFiles/cpp.dir/TextRPG/test_rpg_2.cpp.o: CXX_COMPILER__cpp_Debug /home/seungho/project/self-study/GameDev/cpp/TextRPG/test_rpg_2.cpp || cmake_object_order_depends_target_cpp
+  DEP_FILE = CMakeFiles/cpp.dir/TextRPG/test_rpg_2.cpp.o.d
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/cpp.dir
+  OBJECT_FILE_DIR = CMakeFiles/cpp.dir/TextRPG
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target cpp
@@ -87,7 +93,7 @@ build CMakeFiles/cpp.dir/pointer/multi_dim_array.cpp.o: CXX_COMPILER__cpp_Debug 
 #############################################
 # Link the executable cpp
 
-build cpp: CXX_EXECUTABLE_LINKER__cpp_Debug CMakeFiles/cpp.dir/pointer/array.cpp.o CMakeFiles/cpp.dir/pointer/pointer_vs_array.cpp.o CMakeFiles/cpp.dir/pointer/lottary_practice.cpp.o CMakeFiles/cpp.dir/pointer/multiple_pointer.cpp.o CMakeFiles/cpp.dir/pointer/multi_dim_array.cpp.o
+build cpp: CXX_EXECUTABLE_LINKER__cpp_Debug CMakeFiles/cpp.dir/pointer/array.cpp.o CMakeFiles/cpp.dir/pointer/pointer_vs_array.cpp.o CMakeFiles/cpp.dir/pointer/lottary_practice.cpp.o CMakeFiles/cpp.dir/pointer/multiple_pointer.cpp.o CMakeFiles/cpp.dir/pointer/multi_dim_array.cpp.o CMakeFiles/cpp.dir/TextRPG/test_rpg_2.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/cpp.dir
   POST_BUILD = :
