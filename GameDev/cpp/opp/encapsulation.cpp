@@ -23,7 +23,7 @@ using namespace std;
 // - public     : 누구한테나 실컷 사용하세요
 // - protected  : 나의 자손들한테만 허락
 // - private    : 나만 사용할께 << class Car 내부에서만
- 
+
 // 상속 접근 지정자: 다음 세대한테 부모님의 유산을 어떻게 물려줄지?
 // 부모님한테 물려받은 유산을 꼭 나의 자손들한테도 독같이 물려줘야 하지 않음
 // - public     : 공개적으로 상송? 부모님의 유산 설계 그대로 ~ (public -> public, protected -> protected)
@@ -75,8 +75,8 @@ class Berserker
 {
 public:
     int GetHp() { return _hp; }
-    void SetHp(int hp) 
-    { 
+    void SetHp(int hp)
+    {
         _hp = hp;
         if (_hp <= 50) SetBerserkerMode();
     }
