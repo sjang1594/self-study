@@ -1,6 +1,6 @@
 #include "Game.h"
 #include <iostream>
-#include "Creature\Player.h"
+#include "Player.h"
 #include "Field.h"
 using namespace std;
 
@@ -33,6 +33,13 @@ void Game::Update()
 	// 매 frame 마다 수행
 	if (_player == nullptr)
 		Game::CreatePlayer();
+
+    if (_player->isDead())
+    {
+        delete _player;
+        _player = nullptr;
+        CreatePlayer();
+    }
 	_field->Update(_player);
 
 }

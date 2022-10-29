@@ -14,6 +14,7 @@ class Player : public Creature
 public:
 	Player(int playerType) : Creature(CT_PLAYER), _playerType(playerType){}
 	virtual ~Player(){}
+    virtual void PrintInfo();
 protected:
 	int _playerType;
 };

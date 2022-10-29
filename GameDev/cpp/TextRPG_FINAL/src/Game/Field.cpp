@@ -1,7 +1,7 @@
 #include "Field.h"
 #include <cstdlib>
-#include "Creature\Monster.h"
-#include "Creature\Player.h"
+#include "Monster.h"
+#include "Player.h"
 
 Field::Field() : _monster(nullptr)
 {
@@ -42,6 +42,23 @@ void Field::StartBattle(Player *player)
 {
 	while(true)
 	{
-		
+		player->PrintInfo();
+        _monster->PrintInfo();
+        _monster->OneAttacked(player);
+
+        if (_monster->isDead()){
+            _monster->PrintInfo();
+            delete _monster;
+            _monster = nullptr;
+            break;
+        }
+
+        player->OneAttacked(_monster);
+
+        if (player->isDead())
+        {
+            player->PrintInfo();
+            break;
+        }
 	}
 }

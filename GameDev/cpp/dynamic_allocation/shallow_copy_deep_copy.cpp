@@ -9,16 +9,22 @@ public:
 	Pet(){cout << "Pet()" << endl;}
 	~Pet(){cout << "~Pet()"<<endl;}
 	Pet(const Pet& pet){cout<<"Pet(const Pet& pet)"<<endl;}
+    Pet& operator=(const Pet& pet){cout << "~Pet&operator=(const Pet& pet)" << endl; return *this;}
 };
 
+class Player
+{
+public:
+    int _level = 0;
+};
 
 // Pet 을 포인터로 들고 있는 이유는, 만약 스택에 있는 거라면, Knight 가 생성 될때나 소멸될때 같이 생성과 소멸을 한다라는 점과
 // Pet 이 방대한 data 를 들고 있다고 한다면 Knight 자체에 되게 많은 데이터를 가지고 있을수 있다.
-class Knight
+class Knight : Player
 {
 public:
 	Knight(){};
-	Knight(const Knight& knight)
+	Knight(const Knight& knight) : Player(knight), _pet(knight._pet)
 	{
 		_hp = knight._hp;
 		_pet = new Pet(*(knight._pet));
@@ -26,8 +32,12 @@ public:
 	Knight& operator=(const Knight& knight)
 	{
 		_hp = knight._hp;
-		_pet = new Pet(*(knight._pet));
-		return *this;
+		//_pet = new Pet(*(knight._pet));
+		//return *this
+
+        // 복사 대입 연산자 -- 명시적으로 해야 _level
+        Player::operator=(knight);
+        _pet = knight._pet;
 	}
 	
 	~Knight(){};
@@ -95,5 +105,13 @@ int main()
 	// 1) 부모 클래스의 복사 생성자 호출
 	// 2) 멤버 클래스의 복사 생성자 호출
 	// - 명시적 복사 대입 연산자 Steps
+    // 1) 알아서 해주는거 없음.
+
+    // 왜 이렇게 혼란 스러울까?
+    // 객체를 복사 한다는것은 두 객체의 값들을 일치 시키려고 하는것
+    // 따라서 기본적으로 얇은 복사 (shallow copy) 방식으로 동작 --> default
+
+    // 명시적 복사를 할 경우
+    // 모든 책임은 유저에게 던져준다.
 	return 0;
 }
