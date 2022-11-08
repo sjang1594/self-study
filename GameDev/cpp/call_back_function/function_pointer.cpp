@@ -30,7 +30,7 @@ public:
 //     return nullptr;
 // }
 
-bool isRareItem(Item* item, int)
+bool isRareItem(Item* item, int value)
 {
     return item->_rarity >= 2;
 }
