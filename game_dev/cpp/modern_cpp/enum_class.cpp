@@ -44,5 +44,19 @@ int main()
 {
     // 기본적으로 int size 로 잡힌다
     cout << sizeof(PlayerType) << endl;
+
+    //double value = PT_knight;
+    // double value = ObjectType::Player; // 암묵적인 변환은 되지 않는다.
+    // 그러면 어떻게 ?
+    double value = static_cast<double>(ObjectType::Player);
+
+    int choice;
+    cin >> choice;
+    if (choice == static_cast<int>(ObjectType::Monster))
+    {
+    }
+ 
+    unsigned int bitFlag;
+    bitFlag = ( 1 << static_cast<int>(ObjectType::Player));
     return 0;
 }
