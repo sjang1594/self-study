@@ -1,0 +1,9 @@
+﻿  pch.cpp
+  CommandQueue.cpp
+  DescriptorHeap.cpp
+  Device.cpp
+  Engine.cpp
+  EnginePch.cpp
+  SwapChain.cpp
+  Generating Code...
+  Engine.vcxproj -> C:\Users\skcjf\source\repos\Game\Output\Engine.lib

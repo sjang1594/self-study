@@ -8,6 +8,7 @@
 #define MAX_LOADSTRING 100
 
 // Global Variables:
+WindowInfo GWindowInfo;
 HINSTANCE hInst;                                // current instance
 WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
 WCHAR szWindowClass[MAX_LOADSTRING];            // the main window class name
@@ -42,9 +43,12 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_CLIENT));
 
     MSG msg;
+    GWindowInfo.width = 800;
+    GWindowInfo.height = 600;
+    GWindowInfo.windowed = true;
 
     unique_ptr<Game> game = make_unique<Game>();
-    game->Init();
+    game->Init(GWindowInfo);
 
     // Main message loop:
     while (GetMessage(&msg, nullptr, 0, 0))
@@ -118,6 +122,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
+   GWindowInfo.hwnd = hWnd;
    return TRUE;
 }
 

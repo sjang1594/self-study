@@ -1,5 +1,7 @@
 ﻿#include "pch.h"
 #include "CommandQueue.h"
+#include "SwapChain.h"
+#include "DescriptorHeap.h"
 
 CommandQueue::~CommandQueue()
 {
@@ -62,19 +64,22 @@ void CommandQueue::RenderBegin(const D3D12_VIEWPORT* vp, const D3D12_RECT* rect)
 	_cmdAlloc->Reset();
 	_cmdList->Reset(_cmdAlloc.Get(), nullptr);
 
+	// transiting and moving the second work to behind (GPU)
 	D3D12_RESOURCE_BARRIER barrier = CD3DX12_RESOURCE_BARRIER::Transition(
 		_swapChain->GetCurrentBackBufferResource().Get(),
-		D3D12_RESOURCE_STATE_PRESENT, // 
-		D3D12_RESOURCE_STATE_RENDER_TARGET); // 
-
+		D3D12_RESOURCE_STATE_PRESENT, // The current screen output
+		D3D12_RESOURCE_STATE_RENDER_TARGET); // the other render target
 	_cmdList->ResourceBarrier(1, &barrier);
 
 	// Set the viewport and scissor rect.  This needs to be reset whenever the command list is reset.
+	// reset
 	_cmdList->RSSetViewports(1, vp);
 	_cmdList->RSSetScissorRects(1, rect);
 
 	// Specify the buffers we are going to render to.
 	D3D12_CPU_DESCRIPTOR_HANDLE backBufferView = _descHeap->GetBackBufferView();
+	
+	// setting the light steel blue
 	_cmdList->ClearRenderTargetView(backBufferView, Colors::LightSteelBlue, 0, nullptr);
 	_cmdList->OMSetRenderTargets(1, &backBufferView, FALSE, nullptr);
 }
@@ -82,17 +87,19 @@ void CommandQueue::RenderBegin(const D3D12_VIEWPORT* vp, const D3D12_RECT* rect)
 void CommandQueue::RenderEnd()
 {
 	D3D12_RESOURCE_BARRIER barrier = CD3DX12_RESOURCE_BARRIER::Transition(
-		_swapChain->GetCurrentBackBufferResource().Get(),
-		D3D12_RESOURCE_STATE_RENDER_TARGET, // 
-		D3D12_RESOURCE_STATE_PRESENT); // 
+		_swapChain->GetCurrentBackBufferResource().Get(), // getting stuff from gpu
+		D3D12_RESOURCE_STATE_RENDER_TARGET, // the output from GPU
+		D3D12_RESOURCE_STATE_PRESENT); // the other render target
 
+	// move the work
 	_cmdList->ResourceBarrier(1, &barrier);
 	_cmdList->Close();
 
-	// 
+	// execute the command list
 	ID3D12CommandList* cmdListArr[] = { _cmdList.Get() };
 	_cmdQueue->ExecuteCommandLists(_countof(cmdListArr), cmdListArr);
 
+	// show the screen
 	_swapChain->Present();
 
 	// Wait until frame commands are complete.  This waiting is inefficient and is
@@ -100,5 +107,6 @@ void CommandQueue::RenderEnd()
 	// so we do not have to wait per frame.
 	WaitSync();
 
+	// back buffer to main, main goes to back buffer index
 	_swapChain->SwapIndex();
 }
