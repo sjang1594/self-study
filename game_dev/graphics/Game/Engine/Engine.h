@@ -7,6 +7,11 @@ public:
 	void Init(const WindowInfo& window);
 	void Render();
 	
+
+public:
+	void RenderBegin();
+	void RenderEnd();
+	
 	void ResizeWindow(int32 width, int32 height);
 
 private:
