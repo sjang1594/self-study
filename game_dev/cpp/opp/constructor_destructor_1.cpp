@@ -59,7 +59,7 @@ public:
     }
     
     //[3] 소멸자
-    ~Knight(){cout << "Knight() 소멸자 called" << endl;}
+    ~Knight(){cout << "Knight() Destructor called" << endl;}
 
     void Move(int y, int x);
     void Attack();
