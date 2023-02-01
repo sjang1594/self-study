@@ -1,18 +1,7 @@
 #include <iostream>
 using namespace std;
 
-class Item
-{
-public:
-	Item(){cout << "Item()" << endl;}
-	Item(const Item& item){cout << "Item(const: item&" << endl;}
-	~Item(){ cout << "~Item()" << endl;}
-public:
-	int _itemType = 0;
-	int _itemObid = 0;
-
-	char _dummy[4096] = {};
-};
+ 
 
 void TestItem(Item item)
 {

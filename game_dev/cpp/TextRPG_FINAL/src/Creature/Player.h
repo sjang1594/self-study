@@ -5,7 +5,7 @@ enum PlayerTypes
 {
 	PT_Knight = 1,
 	PT_Archer = 2,
-	PT_Mage = 3,
+	PT_Mage = 3
 };
 
 class Player : public Creature
