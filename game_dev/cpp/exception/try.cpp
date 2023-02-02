@@ -15,8 +15,16 @@ public:
 
 class B : public A
 {
-   B(int x) : A(x)
-   {}
+//    B(int x) : A(x){}
+    B(int x) try: A(x)
+    {
+        // do initialization
+    }
+    catch (...)
+    {
+        cout << "Catch in B Constructor" << endl;
+        throw;
+    }
 };
 
 void doSomething()
@@ -36,7 +44,8 @@ int main()
 {
     try
     {
-        doSomething();
+        // doSomething();
+        B b(0);
     }
     catch(...)
     {
