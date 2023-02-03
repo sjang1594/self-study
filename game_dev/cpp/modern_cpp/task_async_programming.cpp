@@ -21,6 +21,7 @@ int main()
     }
 
     // future and promise
+    // if future is not defined, then it will run sequentially
     {
         std::promise<int> prom;
         auto fut = prom.get_future();
