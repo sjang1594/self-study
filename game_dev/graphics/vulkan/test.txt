@@ -1,0 +1,11 @@
+Fixed Function : Input assembles, rasterization, color blending
+configure stages by setting variable, and modify the stage's behavior
+
+Programmable : vertex shader fragment shader
+build our own code on GPU (Code live in GPU)
+shades languagle : glsl
+
+
+Why all of this is necessary?
+Why can't we process all these in CPU, but it would be much more slower.
+The benefit of having GPU would be the parallel computing
