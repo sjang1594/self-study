@@ -4,7 +4,7 @@
 // 
 // 1. Fractional Knapsack Problem (****) => Greedy
 // 
-// 2. 0/1 Knapsack Problem => Greedy
+// 2. 0/1 Knapsack Problem => Greedy(X)
 // 
 // 
 // 그래서 Greedy 한 답이 정확한 답이 아닐수있다. (2^n)

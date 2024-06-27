@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6323FD35-D556-4CB1-A088-667D73D76525}|GraphColoring\\GraphColoring.vcxproj|C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\GraphColoring\\GraphColoring.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6323FD35-D556-4CB1-A088-667D73D76525}|GraphColoring\\GraphColoring.vcxproj|solutionrelative:GraphColoring\\GraphColoring.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{884F483F-F32D-4858-BA5F-F70516F3D0E3}|Dijkstra\u0027s Algorithm\\Dijkstra\u0027s Algorithm.vcxproj|C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\Dijkstra\u0027s Algorithm\\Dijkstra\u0027s Algorithm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{884F483F-F32D-4858-BA5F-F70516F3D0E3}|Dijkstra\u0027s Algorithm\\Dijkstra\u0027s Algorithm.vcxproj|solutionrelative:Dijkstra\u0027s Algorithm\\Dijkstra\u0027s Algorithm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08F90D14-970F-49E1-B6BA-14530E4F09DF}|Prim\u0027sAlgorithm\\Prim\u0027sAlgorithm.vcxproj|C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\Prim\u0027sAlgorithm\\Prim\u0027sAlgorithm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{08F90D14-970F-49E1-B6BA-14530E4F09DF}|Prim\u0027sAlgorithm\\Prim\u0027sAlgorithm.vcxproj|solutionrelative:Prim\u0027sAlgorithm\\Prim\u0027sAlgorithm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{16F306E4-5CEC-45E3-B6E2-AD194C667894}|GraphTraversal\\GraphTraversal.vcxproj|C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\GraphTraversal\\GraphTraversal.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{16F306E4-5CEC-45E3-B6E2-AD194C667894}|GraphTraversal\\GraphTraversal.vcxproj|solutionrelative:GraphTraversal\\GraphTraversal.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7FFF51AB-2489-4BF1-85EA-BBC2FB6C27CD}|MST\\MST.vcxproj|C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\MST\\MST.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7FFF51AB-2489-4BF1-85EA-BBC2FB6C27CD}|MST\\MST.vcxproj|solutionrelative:MST\\MST.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1533754A-3869-4877-9097-E229074E7D03}|KnapsackProblem\\KnapsackProblem.vcxproj|C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\KnapsackProblem\\KnapsackProblem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1533754A-3869-4877-9097-E229074E7D03}|KnapsackProblem\\KnapsackProblem.vcxproj|solutionrelative:KnapsackProblem\\KnapsackProblem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1CA300F1-F221-428B-8136-69F5930A590F}|GreedyAlgorithm\\GreedyAlgorithm.vcxproj|C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\GreedyAlgorithm\\GreedyAlgorithm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1CA300F1-F221-428B-8136-69F5930A590F}|GreedyAlgorithm\\GreedyAlgorithm.vcxproj|solutionrelative:GreedyAlgorithm\\GreedyAlgorithm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFEC86E8-B2C4-4882-B3FE-F8E6D4A5DB6F}|Practice23\\Practice23.vcxproj|C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\Practice23\\Practice23.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{EFEC86E8-B2C4-4882-B3FE-F8E6D4A5DB6F}|Practice23\\Practice23.vcxproj|solutionrelative:Practice23\\Practice23.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,68 +26,57 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GraphColoring.cpp",
-              "DocumentMoniker": "C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\GraphColoring\\GraphColoring.cpp",
-              "RelativeDocumentMoniker": "GraphColoring\\GraphColoring.cpp",
-              "ToolTip": "C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\GraphColoring\\GraphColoring.cpp",
-              "RelativeToolTip": "GraphColoring\\GraphColoring.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "DocumentIndex": 1,
+              "Title": "Prim\u0027sAlgorithm.cpp",
+              "DocumentMoniker": "C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\Prim\u0027sAlgorithm\\Prim\u0027sAlgorithm.cpp",
+              "RelativeDocumentMoniker": "Prim\u0027sAlgorithm\\Prim\u0027sAlgorithm.cpp",
+              "ToolTip": "C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\Prim\u0027sAlgorithm\\Prim\u0027sAlgorithm.cpp",
+              "RelativeToolTip": "Prim\u0027sAlgorithm\\Prim\u0027sAlgorithm.cpp",
+              "ViewState": "AQIAAKUAAAAAAAAAAAAYwMcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-16T15:00:09.662Z",
+              "WhenOpened": "2024-06-25T15:01:46.89Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "Dijkstra\u0027s Algorithm.cpp",
+              "DocumentMoniker": "C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\Dijkstra\u0027s Algorithm\\Dijkstra\u0027s Algorithm.cpp",
+              "RelativeDocumentMoniker": "Dijkstra\u0027s Algorithm\\Dijkstra\u0027s Algorithm.cpp",
+              "ToolTip": "C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\Dijkstra\u0027s Algorithm\\Dijkstra\u0027s Algorithm.cpp",
+              "RelativeToolTip": "Dijkstra\u0027s Algorithm\\Dijkstra\u0027s Algorithm.cpp",
+              "ViewState": "AQIAAJwAAAAAAAAAAAAYwL4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-25T13:56:11.542Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GraphTraversal.cpp",
+              "DocumentMoniker": "C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\GraphTraversal\\GraphTraversal.cpp",
+              "RelativeDocumentMoniker": "GraphTraversal\\GraphTraversal.cpp",
+              "ToolTip": "C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\GraphTraversal\\GraphTraversal.cpp",
+              "RelativeToolTip": "GraphTraversal\\GraphTraversal.cpp",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAB8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-25T13:05:42.26Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "MST.cpp",
               "DocumentMoniker": "C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\MST\\MST.cpp",
               "RelativeDocumentMoniker": "MST\\MST.cpp",
               "ToolTip": "C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\MST\\MST.cpp",
               "RelativeToolTip": "MST\\MST.cpp",
-              "ViewState": "AQIAAL4AAAAAAAAAAAAlwL0AAAAtAAAA",
+              "ViewState": "AQIAALoAAAAAAAAAAAAAANAAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-16T12:53:23.082Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "KnapsackProblem.cpp",
-              "DocumentMoniker": "C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\KnapsackProblem\\KnapsackProblem.cpp",
-              "RelativeDocumentMoniker": "KnapsackProblem\\KnapsackProblem.cpp",
-              "ToolTip": "C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\KnapsackProblem\\KnapsackProblem.cpp",
-              "RelativeToolTip": "KnapsackProblem\\KnapsackProblem.cpp",
-              "ViewState": "AQIAAGMAAAAAAAAAAAAQwHkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-10T10:25:04.438Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GreedyAlgorithm.cpp",
-              "DocumentMoniker": "C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\GreedyAlgorithm\\GreedyAlgorithm.cpp",
-              "RelativeDocumentMoniker": "GreedyAlgorithm\\GreedyAlgorithm.cpp",
-              "ToolTip": "C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\GreedyAlgorithm\\GreedyAlgorithm.cpp",
-              "RelativeToolTip": "GreedyAlgorithm\\GreedyAlgorithm.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-28T10:09:36.948Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Practice23.cpp",
-              "DocumentMoniker": "C:\\Users\\skcjf\\Github_REPO\\self-study\\Algorithm\\Practice23\\Practice23.cpp",
-              "RelativeDocumentMoniker": "Practice23\\Practice23.cpp",
-              "ToolTip": "C:\\Users\\skcjf\\source\\repos\\lec1\\Practice23\\Practice23.cpp*",
-              "RelativeToolTip": "..\\..\\..\\source\\repos\\lec1\\Practice23\\Practice23.cpp*",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-28T09:57:42.82Z"
+              "WhenOpened": "2024-06-25T10:19:12.318Z"
             }
           ]
         }
