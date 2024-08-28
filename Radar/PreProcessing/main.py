@@ -34,7 +34,6 @@ https://www.radartutorial.eu/02.basics/Frequency%20Modulated%20Continuous%20Wave
 https://github.com/PreSenseRadar/OpenRadar/blob/master/mmwave/dsp/doppler_processing.py
 chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.ti.com/lit/an/swra553a/swra553a.pdf?ts=1714172430750
 """
-c = 299792458
 
 @dataclass
 class RadarROSConfig:
@@ -62,38 +61,41 @@ def parse_single_radar_data(file_path, dataFormat:DataFormat=DataFormat.ROS):
     try:
         if(dataFormat == DataFormat.ROS):
             data_df = pd.read_csv(file_path)
+            frame_number = 189
 
             # one frame data
-            frame_data = data_df['.data'].iloc[754]
+            frame_data = data_df['.data'].iloc[frame_number]
             if len(frame_data) == 0:
                 raise Exception("No data found in the file")
 
             parsed_from_data = np.fromstring(frame_data.strip('()'), sep=',')
-            return parsed_from_data
+            radarParam = RadarROSConfig(4, 150, 1)
+            return parsed_from_data, radarParam
         else:
             # read first line from the text
             with open(file_path, 'r') as f:
                 # Better to keep this in dict
                 config_data = f.readline().split(" ")
-                num_tx_rx = int(config_data[0])
+                num_rx = int(config_data[1]) # for the receiver
                 num_chirps = int(config_data[2])
                 num_samples_per_chirp = int(config_data[3])
                 center_cpi = int(config_data[4])
-
                 data = [float(line.strip()) for line in f]
                 if len(data) < num_chirps * num_samples_per_chirp:
                     raise Exception("Data is not enough for the given chirps and samples")
-            return np.array(data[:num_chirps*num_samples_per_chirp])
-
+                radarParam = RadarAnsysConfig(num_chirps, num_samples_per_chirp, num_rx)
+            return np.array(data[:num_chirps*num_samples_per_chirp]), radarParam
     except Exception as e:
         print(e)
-        return np.array([])
+        return np.array([]), None
 
 def freq_to_range(f, slope):
     """Convert frequency to range"""
+    c = 299792458
     return f * c/( 2 * slope )
 
-def process_range(data, num_samples_per_chirp=400, sampling_frequency=150e6, bandwidth=200e6, chirp_duration=2e-6):
+def process_range(data, num_samples_per_chirp, sampling_frequency, bandwidth):
+    chirp_duration = num_samples_per_chirp / sampling_frequency
     """data => chirp0 samples"""
     chirp_fft  = fft(data, n=num_samples_per_chirp)
     # frequencies = np.arange(0, num_samples_per_chirp//2) * sampling_frequency/num_samples_per_chirp
@@ -103,16 +105,36 @@ def process_range(data, num_samples_per_chirp=400, sampling_frequency=150e6, ban
     slope = bandwidth / chirp_duration
     ranges = freq_to_range(frequencies, slope)
     plt.figure(figsize=(15, 5))
-    plt.plot(ranges, 20 * np.log10(np.abs(chirp_fft)))
-    plt.plot(ranges, 20 * np.log10(np.abs(chirp_fft)), "k+")
+    plt.plot(ranges, 10 * np.log10(np.abs(chirp_fft)))
+    plt.plot(ranges, 10 * np.log10(np.abs(chirp_fft)), "k+")
     plt.xlabel("Range $r$ [m]")
     plt.title("Derveid Range (FFT of chirp0)")
     plt.show()
     print(freq_to_range(frequencies, slope)[np.argmax(2.0/num_samples_per_chirp*np.abs(chirp_fft))])
     return ranges
 
-def construct_range_doppler_map(adc_data):    
-    adc_data = adc_data.reshape(200, 1, 400)
+def construct_range_doppler_map(adc_data, radarParam, dataFormat:DataFormat):
+    c = 299792458
+    if (dataFormat == DataFormat.ANSYS):
+        number_of_chirps = radarParam.number_of_chirps
+        num_adc_sample = radarParam.number_of_samples_per_chirp
+        number_of_antenna = radarParam.number_of_antenna
+        chirp_duration = radarParam.chirp_duration
+        bandwidth = radarParam.bandwidth
+        center_frequency = radarParam.center_frequency
+    else:
+        number_of_chirps = radarParam.number_of_chirps
+        num_adc_sample = radarParam.number_of_samples_per_chirp
+        number_of_antenna = radarParam.number_of_antenna
+        sampling_frequency = radarParam.sampling_frequency
+        lower_frequency = radarParam.lower_frequency
+        bandwidth = radarParam.bandwidth
+        center_frequency = lower_frequency + (bandwidth * 0.5)
+         # assuming that the chirp duration is the same as the sample time
+        chirp_duration = num_adc_sample / sampling_frequency
+
+    # Reshape the (chipr number, receive_antenna number, number of samples)
+    adc_data = adc_data.reshape(number_of_chirps, number_of_antenna, num_adc_sample)
     range_cube = np.fft.fft(adc_data, axis=2).transpose(2, 1, 0)
     range_doppler = np.fft.fftshift(np.fft.fft(range_cube, axis=2), axes=2)
     range_doppler_psd = 10*np.log10( np.abs(range_doppler)**2 ).sum(axis=1).T # power septral density
@@ -135,23 +157,15 @@ def construct_range_doppler_map(adc_data):
     ax[1].set_ylabel("Relative Magnitude")
     plt.show()
 
-    c = 299792458
-    num_adc_sample = 400
-    # compute ADC sample period T_c in msec
-    chirp_duration = 20e-6
-
-    # next compute the Bandwidth in GHz
-    bandwidth = 200e6 # MHz
-
     # Coompute range resolution in meters
-    range_resolution = c / (2 * (bandwidth)) # meters
-    # max_range = c * num_samples_per_chirp / (4.0 * bandwidth)
-
-    num_chirps = adc_data.shape[0]
-    center_frequency = 76.5e9
+    print("------------------")
+    print("# of Chirps : ", adc_data.shape[0])
     wavelength = c / (center_frequency)
-    doppler_resolution = wavelength / (2 * chirp_duration * num_chirps)
-    max_doppler = num_chirps * doppler_resolution / 2
+    range_resolution = c / (2 * (bandwidth)) # meters
+    max_range = c * num_adc_sample / (4.0 * bandwidth)
+    doppler_resolution = wavelength / (2 * chirp_duration * number_of_chirps)
+    max_doppler = number_of_chirps * doppler_resolution / 2
+    max_velocity = wavelength / (4.0 * num_adc_sample / sampling_frequency)
 
     print("------------------")
     print("BandWidth", bandwidth)
@@ -159,20 +173,24 @@ def construct_range_doppler_map(adc_data):
     print("Max Range", max_range)
     print("Doppler Resolution", doppler_resolution)
     print("Max Doppler", max_doppler)
+    print("Max Velocity", max_velocity)
 
     ranges = np.arange(0, max_range + range_resolution, range_resolution)
     dopplers = np.arange(-max_doppler, max_doppler + doppler_resolution, doppler_resolution)
 
+    observed_range_index = np.argmax(range_doppler_psd.sum(axis=0))  # Index of max range bin
+    # observed_range = ranges[observed_range_index]
+    # print("Observed Range", observed_range)
+
     observed_velocities_indicies = np.argmax(range_doppler_psd, axis=0)  # Index of max Doppler per range bin
     observed_velocities = dopplers[observed_velocities_indicies]
-    observed_velocity = observed_velocities.max()
-    print("Max Velocities", observed_velocity)
+    for i in observed_velocities:
+        print("Max Velocities", i)
 
-    range_ticks = np.arange(0, len(ranges), len(ranges)//10)
-    range_tick_labels = ranges[::len(ranges)//10].round(2)
-
-    doppler_ticks = np.arange(0, len(dopplers), len(dopplers)//10)
-    doppler_tick_labels = dopplers[::len(dopplers)//10][::-1].round(2)
+    range_ticks = np.arange(0, len(ranges), len(ranges)//8)
+    range_tick_labels = ranges[::len(ranges)//8].round(3)
+    doppler_ticks = np.arange(0, len(dopplers), len(dopplers)//2)
+    doppler_tick_labels = dopplers[::len(dopplers)//2][::-1].round(3)
 
     fig, ax = plt.subplots(1, 1, figsize=(25, 2))
     ax.imshow(range_doppler_psd)
@@ -188,62 +206,13 @@ def construct_range_doppler_map(adc_data):
 if __name__ == '__main__':
     # relative path for the data
     # file_path = './RadarDataROS/movingObstacle_NormalX1.csv' (ROS)
-    file_path = './RadarDataAnsys/radar_000000050_Mode000_adcsamples.txt' # (Ansys)
-    data = parse_single_radar_data(file_path, DataFormat.ANSYS)
-
-    # directory_path = './RadarDataAnsys/'
-    # config, data = parse_multiple_radar_data(directory_path, DataFormat.ANSYS)
-
-    # as stated in the paper, Ns = 300, Nc = 10, B = 7GHz 
-    ##                            Radar Param                            ##
-    ## ----------------------------------------------------------------- ##
-    num_chirps = 200            # ansys = 100, ROS = 200
-    num_samples_per_chirp = 400 # ROS = 300 / Ansys = 400
-    num_antenna = 2
-    lower_frequency = 76.4e9    # 57GHz for ROS | 76.5 GHz = 7.64e9
-    sampling_frequency = 150e6  # 2MHz for ROS | 150 MHz = 150e6
-    bandwidth = 200e6           # Ros 7 GHZ | Ansys 200e6 MHz
-    ## ----------------------------------------------------------------- ##
-
-    # calculate the range and dolppler resolutions
-    range_resolution = c / (2 * bandwidth)
-    center_frequency = lower_frequency + (bandwidth * 0.5)
-    wavelength = c / center_frequency
-    chirp_duration = 2e-6        # num_samples_per_chirp / sampling_frequency
-    doppler_resolution = wavelength / (2 * chirp_duration * num_chirps)
-    max_range = c * num_samples_per_chirp / (4.0 * bandwidth)
-    max_velocity = wavelength / (4.0 * chirp_duration)
-
-    print(f"Range Resolution: {range_resolution:.2f} meters")
-    print(f"Doppler Resolution: {doppler_resolution:.2f} m/s")
-    print(f"Max Range: {max_range:.2f} meters")
-    print(f"Max Velocity: {max_velocity:.2f} m/s")
-
-    # [DO NOT DELETE]
-    # data_matrix = data.reshape(num_chirps, num_samples_per_chirp * 1)
-
-    # This is one chirp and sample data & slice the data
-    # fisrt_chirp = data_matrix[0]
-    
-    construct_range_doppler_map(data)
-
-    # Convert the data into pd for visualization
-    # table_view = retrieve_single_data_in_pd(data_matrix, num_chirps, num_samples_per_chirp)
-    # show_single_data_in_pd(table_view)
-
-    # # Process the range
-    # ranges = process_range(fisrt_chirp, num_samples_per_chirp, sampling_frequency, bandwidth, chirp_duration)
-    # range_table = calculate_range_bins_for_each_chirp(table_view, num_chirps, num_samples_per_chirp)
-    # show_range_result(range_table, ranges)
-
-    # doppler_table, velocities = process_doppler(range_table, num_chirps, chirp_duration, wavelength)
-    # show_doppler_result(doppler_table, ranges, velocities)
-
-    # Split data for each antenna
-    # Draw ROS
-    # antenna_data = [data_matrix[:, i*num_samples_per_chirp:(i+1)*num_samples_per_chirp] for i in range(num_antenna)]
-
-    # draw_range_doppler_map(antenna_data, range_bins, doppler_bins)
-    # Draw Ansys
-
-    # draw_range_azimuth_map(num_samples_per_chirp, num_chirps, antenna_data)
+    dataFormat = DataFormat.ROS
+    if (dataFormat == DataFormat.ANSYS):
+        file_path = './RadarDataAnsys/radar_000000050_Mode000_adcsamples.txt' # (Ansys)
+        data, radarParam = parse_single_radar_data(file_path, DataFormat.ANSYS)
+    else:
+        file_path = './RadarDataROS/scenario_5.csv' # (ROS)
+        data, radarParam = parse_single_radar_data(file_path, DataFormat.ROS)
+        process_range(data, radarParam.number_of_samples_per_chirp, radarParam.sampling_frequency, 
+                      radarParam.bandwidth)
+    construct_range_doppler_map(data, radarParam, dataFormat)
