@@ -5,7 +5,7 @@ This is self studying repository! I am trying to record what I learned and what 
 <img align="left" alt="Python" width="30px" src="https://img.icons8.com/color/48/000000/python.png" />
 <img align="left" alt="C++" width="30px" src="https://img.icons8.com/color/48/000000/c-plus-plus-logo.png"/>
 <img align="left" alt="C#" width="30px" src="https://img.icons8.com/color/48/000000/c-sharp-logo.png"/>
-<img align="left" alt="C#" width="30px" src="https://img.icons8.com/color/48/000000/swift-logo.png"/>
+<img align="left" alt="C#" width="30px" src="https://img.icons8.com/?size=100&id=24465&format=png&color=000000"/>
 <br/>
 <br/>
 
