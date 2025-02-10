@@ -2,7 +2,7 @@
 
 ## Key Result
 
-![Random Color Generator](<2025-02-10 22.04.40.gif>)
+![Random Color Generator](<.gif/2025-02-10 22.04.40.gif>)
 
 ### Steps.
 1. Create UIView, UILabel in the middle to represent the color ("R", "G", "B"), UIButton for change & reset the color for UIView
@@ -11,6 +11,7 @@
 4. connect event actions for change & reset color.
 
 ## Things I've learned 
+
 **UIButton Action**
 
 Regular way would be to use `AddTarget()` but you can add closure to UIButton.
