@@ -56,10 +56,13 @@ class ViewController: UIViewController {
     }
     
     private func setupActions() {
+        changeColorBtn.addTarget(self, action: #selector(changeColor), for: .touchUpInside)
+        resetBtn.addTarget(self, action: #selector(resetColor), for: .touchUpInside)
+        /* Closure way
         changeColorBtn.addAction(UIAction { [weak self] _ in
             self?.changeColor() }, for: .touchUpInside)
         resetBtn.addAction(UIAction { [weak self] _ in
-            self?.resetColor()}, for: .touchUpInside)
+            self?.resetColor()}, for: .touchUpInside) */
     }
     
     private func setupButtons() {
@@ -68,9 +71,10 @@ class ViewController: UIViewController {
             backgroundView.addSubview(button)
             button.translatesAutoresizingMaskIntoConstraints = false;
         }
-        
         changeColorBtn.setTitle("Change Color", for: .normal)
+        changeColorBtn.configuration = .borderedProminent()
         resetBtn.setTitle("Reset", for: .normal)
+        resetBtn.configuration = .borderedProminent()
 
         // to remove redunant .isActive
         NSLayoutConstraint.activate([
@@ -83,7 +87,7 @@ class ViewController: UIViewController {
         ])
     }
     
-    private func changeColor() {
+    @objc private func changeColor() {
         // normalized for all color
         let r = CGFloat.random(in: 0...1)
         let g = CGFloat.random(in: 0...1)
@@ -93,7 +97,7 @@ class ViewController: UIViewController {
         colorLabel.text = "R: \(Int(r * 255)), G: \(Int(g*255)), B: \(Int(b*255))"
     }
     
-    private func resetColor() {
+    @objc private func resetColor() {
         backgroundView.backgroundColor = .white
         colorLabel.text = defaultColorString
     }
