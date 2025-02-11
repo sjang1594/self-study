@@ -10,8 +10,41 @@
 
 ## Things I've learned
 * [UINavigationController](https://ios-daniel-yang.tistory.com/entry/iOSSwift-UINavigationController-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0)
-* [Lazy var](https://www.avanderlee.com/swift/lazy-var-property/)
 
+**Lazy Var**
+> * Lazy var (to use, 'lazy' you need to use var) because `lazy var` is related to memory, which will not be in the memory until we actually use it. But when it's loaded, then it will be loaded and allocated to memory.
+  * The lazy bar can be used only in this data type (struct / class), and can't be used as `Computed Property`. This feels like some constant property (like use it when i need to use it, else don't use this)
+  * To use the lazy var, this should be done in self.
+
+```swift
+class Person {
+    var name:String
+    
+    lazy var greeting:String = {
+        return "Hello my name is \((self.name))"
+    }()
+
+    lazy var greeting: ()->String = { [weak self] in
+        return "Hello my name is \(((self?.name))!)"
+    }
+  
+    init(name:String){
+        self.name = name
+    }
+}
+
+var me = Person(name:"John")
+
+print(me.greeting // Hello my name is John
+
+me.name = "James"
+
+print(me.greeting // Hello my name is John
+```
+
+* [Lazy var](https://www.avanderlee.com/swift/lazy-var-property/)
+* [Lazy var](https://abhimuralidharan.medium.com/lazy-var-in-ios-swift-96c75cb8a13a)
+  
 **Then Package**
 Usage of then package is to simplify closures for SwiftUI. which can be useful in some what way. But this can be unncessary to bind dependency in a way
 * [Usage of Then Package](https://www.youtube.com/@dev_jeongdaeri)
