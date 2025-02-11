@@ -65,6 +65,7 @@ class ViewController: UIViewController {
     
     // LifeCycles
     override func loadView() {
+        //* Becareful *//
         super.loadView()
         configurationUI()
     }
