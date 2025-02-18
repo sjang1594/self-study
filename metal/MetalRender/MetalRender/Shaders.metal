@@ -7,19 +7,21 @@
 
 #include <metal_stdlib>
 using namespace metal;
-#include "definitions.h"
+
+struct Vertex {
+    float2 position [[attribute(0)]];
+    float4 color [[attribute(1)]];
+};
 
 struct Fragment {
     float4 position [[position]];
     float4 color;
 };
 
-vertex Fragment vertexShader(const device Vertex *vertexArray [[buffer(0)]], unsigned int vid [[vertex_id]]){
-    Vertex input = vertexArray[vid];
-    
+vertex Fragment vertexShader(uint vid [[vertex_id]], constant Vertex* vertices){
     Fragment output;
-    output.position = float4(input.position.x, input.position.y, 0, 1);
-    output.color = input.color;
+    output.position = float4(vertices[vid].position, 0.0, 1.0);
+    output.color = vertices[vid].color;
     return output;
 }
 

@@ -32,7 +32,7 @@ vertices = [
 3. Within the fragment(pixel) shader from vertex shader, return those color to draw on the screen. 
 
 ### Result on Preview
-![alt text](../asset/img/triangle.png)
+<img src="../asset/img/triangle.png" alt="isolated" width="200"/>
 
 ### Result on IPad
 
