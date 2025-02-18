@@ -35,6 +35,7 @@ vertices = [
 <img src="../asset/img/triangle.png" alt="isolated" width="200"/>
 
 ### Result on IPad
-
+<img src="../asset/img/triangle_on_ipad.png" alt="isolated" width="200"/>
 
 ### Reference
+* 
