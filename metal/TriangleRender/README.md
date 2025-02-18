@@ -31,6 +31,11 @@ vertices = [
 
 3. Within the fragment(pixel) shader from vertex shader, return those color to draw on the screen. 
 
+### Build on IPad
+* In order to build your app on IPad, you need to set following things:
+  * Set the developer moode 
+  * Set the VPN Privacy allowed on your account 
+
 ### Result on Preview
 <img src="../asset/img/triangle.png" alt="isolated" width="200"/>
 
@@ -38,4 +43,5 @@ vertices = [
 <img src="../asset/img/triangle_on_ipad.png" alt="isolated" width="200"/>
 
 ### Reference
-* 
+* [Intro to Metal](https://www.youtube.com/watch?v=H2ufvcNvVmA&list=PLn3eTxaOtL2MThB3r1Pz5Z-EQaqBi3dHt&index=2&ab_channel=GetIntoGameDev)
+* [Youtube](https://www.youtube.com/watch?v=GLDYreVv4Ns&list=PL23Revp-82LJG3vcDPm8w7b5HTKjBOY0W&index=4&ab_channel=Kodeco)
