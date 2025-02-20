@@ -1,5 +1,5 @@
 # Self-Study
-This is self studying repository! I am trying to record what I learned and what I'm interested in.
+This is a self-study repository! I am recording what I learned and what I'm interested in.
 
 ## Languages :
 <img align="left" alt="Python" width="30px" src="https://img.icons8.com/color/48/000000/python.png" />
@@ -27,3 +27,11 @@ This covers not only the ROS(Robotic Operating System), but includes some of imp
 
 ## Kubernetes
 I have not deeply studied and learn what to do 
+
+## Mobile Dev
+* Swift
+
+## Computer Graphics w Metal
+1. Render Pipeline (Hello, Triangle)
+2. Constant Buffer
+3. Texture
