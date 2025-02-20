@@ -29,7 +29,7 @@ vertices = [
             Vertex(position: [1, -1], color: [0, 0, 1, 1])]
 ```
 
-3. Within the fragment(pixel) shader from vertex shader, return those color to draw on the screen. 
+3. Within the fragment(pixel) shader from vertex shader, return those color to draw on the screen.
 
 ### Build on IPad
 * In order to build your app on IPad, you need to set following things:
