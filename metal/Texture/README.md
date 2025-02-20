@@ -17,4 +17,4 @@
 
 ### Output
 
-![image](../assets/img/snow.png)
+![image](../asset/img/snow.png)
