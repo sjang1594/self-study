@@ -7,12 +7,18 @@
 
 import Metal
 
-func buildPipeline(device: MTLDevice) -> MTLRenderPipelineState {
+func buildPipeline(device: MTLDevice, texture: MTLTexture?) -> MTLRenderPipelineState {
     let pipeline: MTLRenderPipelineState
     let pipelineDescriptor = MTLRenderPipelineDescriptor()
-    let library = device.makeDefaultLibrary()!
-    pipelineDescriptor.vertexFunction = library.makeFunction(name: "vertexShader")
-    pipelineDescriptor.fragmentFunction = library.makeFunction(name: "fragmentShader")
+    let library = device.makeDefaultLibrary()
+   
+    pipelineDescriptor.vertexFunction = library?.makeFunction(name: "vertexShader")
+    if texture != nil {
+        pipelineDescriptor.fragmentFunction = library?.makeFunction(name: "texturedFragmentShader")
+    }
+    else {
+        pipelineDescriptor.fragmentFunction = library?.makeFunction(name: "fragmentShader")
+    }
     pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
     
     let vertexDescriptor = MTLVertexDescriptor()
@@ -24,9 +30,14 @@ func buildPipeline(device: MTLDevice) -> MTLRenderPipelineState {
     vertexDescriptor.attributes[1].format = .float4
     vertexDescriptor.attributes[1].offset = MemoryLayout<SIMD4<Float>>.stride // color
     vertexDescriptor.attributes[1].bufferIndex = 0
+    // Texture
+    vertexDescriptor.attributes[2].format = .float2
+    vertexDescriptor.attributes[2].offset = MemoryLayout<SIMD3<Float>>.stride + MemoryLayout<SIMD4<Float>>.stride // tex
+    vertexDescriptor.attributes[2].bufferIndex = 0
+    
     vertexDescriptor.layouts[0].stride = MemoryLayout<Vertex>.stride
     pipelineDescriptor.vertexDescriptor = vertexDescriptor
-
+    
     do {
         pipeline = try device.makeRenderPipelineState(descriptor: pipelineDescriptor)
         return pipeline

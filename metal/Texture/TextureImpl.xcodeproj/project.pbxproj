@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		587AABA92D67020E00D87104 /* Texture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Texture.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		587AABA92D67020E00D87104 /* TextureImpl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextureImpl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -40,7 +40,7 @@
 		587AABAA2D67020E00D87104 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				587AABA92D67020E00D87104 /* Texture.app */,
+				587AABA92D67020E00D87104 /* TextureImpl.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,9 +48,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		587AABA82D67020E00D87104 /* Texture */ = {
+		587AABA82D67020E00D87104 /* TextureImpl */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 587AABB72D67020F00D87104 /* Build configuration list for PBXNativeTarget "Texture" */;
+			buildConfigurationList = 587AABB72D67020F00D87104 /* Build configuration list for PBXNativeTarget "TextureImpl" */;
 			buildPhases = (
 				587AABA52D67020E00D87104 /* Sources */,
 				587AABA62D67020E00D87104 /* Frameworks */,
@@ -63,11 +63,11 @@
 			fileSystemSynchronizedGroups = (
 				587AABAB2D67020E00D87104 /* Texture */,
 			);
-			name = Texture;
+			name = TextureImpl;
 			packageProductDependencies = (
 			);
 			productName = Texture;
-			productReference = 587AABA92D67020E00D87104 /* Texture.app */;
+			productReference = 587AABA92D67020E00D87104 /* TextureImpl.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 587AABA42D67020E00D87104 /* Build configuration list for PBXProject "Texture" */;
+			buildConfigurationList = 587AABA42D67020E00D87104 /* Build configuration list for PBXProject "TextureImpl" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -99,7 +99,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				587AABA82D67020E00D87104 /* Texture */,
+				587AABA82D67020E00D87104 /* TextureImpl */,
 			);
 		};
 /* End PBXProject section */
@@ -265,7 +265,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Texture;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TextureImpl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -294,7 +294,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Texture;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TextureImpl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -305,7 +305,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		587AABA42D67020E00D87104 /* Build configuration list for PBXProject "Texture" */ = {
+		587AABA42D67020E00D87104 /* Build configuration list for PBXProject "TextureImpl" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				587AABB52D67020F00D87104 /* Debug */,
@@ -314,7 +314,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		587AABB72D67020F00D87104 /* Build configuration list for PBXNativeTarget "Texture" */ = {
+		587AABB72D67020F00D87104 /* Build configuration list for PBXNativeTarget "TextureImpl" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				587AABB82D67020F00D87104 /* Debug */,
