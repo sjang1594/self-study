@@ -17,8 +17,9 @@
 ### View Matrix
 * This matrix is used to transform the world coordinates to the camera coordinates.
 
-For example, if we translate view matrix to be 0, 0, 4, then the camera is looking at the origin point (0, 0, 0) from the positive z-axis. which also means, setting the object to be 4 units away from the camera.
+For example, if we translate view matrix to be 0, 0, 4, then the camera is looking at the origin point (0, 0, 0) from the positive z-axis. which also means, setting the object to be 4 units away from the camera. For Instance, if you want the camera location to be -4, then you will set translation(0, 0, -4) for the view matrix, then you are setting the camera to be (0, 0, -4). In this case, you won't be able to see the texture. because it's basically out of the scene. But if you use `inverse` view matrix, it means you basically flip the coordinate, which in this case, you will put the object into the positive-z direction for 4 unit away from camera.
 
+It's more clear that I have `lookedAt` vector to clear things out.
 ### Keywords
 * Model Transformation
 * View Transformation
