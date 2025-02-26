@@ -7,63 +7,64 @@
 
 import Foundation
 import UIKit
-import Then
 
 final class StretchyTableHeaderView: UIView {
+    // MARK: - Properties
     public let imageView = UIImageView().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.clipsToBounds = true
         $0.contentMode = .scaleAspectFill
     }
-    
-    private var imgViewHeight = NSLayoutConstraint()
-    private var imgViewBottom = NSLayoutConstraint()
-    // Container for ImageView
-    
     lazy var containerView = UIView().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    private var containerViewHeight = NSLayoutConstraint()
+    private var imgViewHeightConstraint = NSLayoutConstraint()
+    private var imgViewBottomConstraint = NSLayoutConstraint()
+    private var containerViewHeightConstraint = NSLayoutConstraint()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        createViews()
-        setViewConstraints()
+        setupViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    private func createViews() {
+    private func setupViews() {
         addSubview(containerView)
         // add imageview into containerview
         containerView.addSubview(imageView)
+        setViewConstraints()
     }
     
     private func setViewConstraints(){
         NSLayoutConstraint.activate([
             widthAnchor.constraint(equalTo: containerView.widthAnchor),
             centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            heightAnchor.constraint(equalTo: containerView.heightAnchor)
+            heightAnchor.constraint(equalTo: containerView.heightAnchor),
         ])
         
         containerView.widthAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
-        containerViewHeight = containerView.heightAnchor.constraint(equalTo: self.heightAnchor)
-        containerViewHeight.isActive = true
+        containerViewHeightConstraint = containerView.heightAnchor.constraint(equalTo: self.heightAnchor)
+        containerViewHeightConstraint.isActive = true
         
-        imgViewBottom = imageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
-        imgViewBottom.isActive = true
-        imgViewHeight = imageView.heightAnchor.constraint(equalTo: containerView.heightAnchor)
-        imgViewHeight.isActive = true
+        imgViewBottomConstraint = imageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+        imgViewBottomConstraint.isActive = true
+        imgViewHeightConstraint = imageView.heightAnchor.constraint(equalTo: containerView.heightAnchor)
+        imgViewHeightConstraint.isActive = true
+    }
+    
+    func setImage(_ image: UIImage?) {
+        imageView.image = image
     }
     
     public func scrollViewDidScroll(scrollView: UIScrollView){
-        containerViewHeight.constant = scrollView.contentInset.top
+        containerViewHeightConstraint.constant = scrollView.contentInset.top
         let offsetY = -(scrollView.contentOffset.y + scrollView.contentInset.top)
         containerView.clipsToBounds = offsetY <= 0
-        imgViewBottom.constant = offsetY >= 0 ? 0 : -offsetY / 2
-        imgViewHeight.constant = max(offsetY + scrollView.contentInset.top, scrollView.contentInset.top)
+        imgViewBottomConstraint.constant = offsetY >= 0 ? 0 : -offsetY / 2
+        imgViewHeightConstraint.constant = max(offsetY + scrollView.contentInset.top, scrollView.contentInset.top)
     }
 }

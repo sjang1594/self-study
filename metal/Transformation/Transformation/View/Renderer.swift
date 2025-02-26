@@ -106,11 +106,11 @@ class Renderer : NSObject, MTKViewDelegate {
         let animateBy = abs(sin(time) * 0.5 + 0.5)
         
         let rotationMatrix = simd_float4x4(rotationZ: animateBy)   // model
-        let viewMatrix = simd_float4x4(translation: SIMD3<Float>(0, 0, 4)) // camera
+        let viewMatrix = simd_float4x4(translation: SIMD3<Float>(0, 0, -4)).inverse // camera
         let modelViewMatrix = simd_mul(rotationMatrix, viewMatrix)
         let projectionMatrix = simd_float4x4(
             projectionFov: radians(fromDeg: 70),
-            near: 0.1, far: 20, aspect: Float(view.bounds.width / view.bounds.height))
+            near: 0.0, far: 20, aspect: Float(view.bounds.width / view.bounds.height))
         
         modelConstants.modelViewMatrix = matrix_multiply(projectionMatrix, modelViewMatrix)
         

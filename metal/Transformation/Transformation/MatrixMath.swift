@@ -25,7 +25,6 @@ extension Float {
 
 extension simd_float4x4 {
     init (translation: SIMD3<Float>) {
-        // Column-Major
         let matrix = float4x4(
             [1,                         0,             0, 0],
             [0,                         1,             0, 0],
