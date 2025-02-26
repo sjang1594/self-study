@@ -13,6 +13,7 @@ import Then
 class ViewController: UIViewController {
     // MARK: - Properties
     private var viewModel: MemoViewModel
+    // MARK: - Combine
     private var cancellables = Set<AnyCancellable>()
     
     private lazy var tableView = UITableView().then {
@@ -91,6 +92,15 @@ class ViewController: UIViewController {
         alert.addTextField { textField in textField.placeholder = "Memo Content"}
         
         let addAction = UIAlertAction(title: "Add", style: .default) { [weak self] _ in
+            /*
+            if let textFields = alert.textFields,
+                let firstTextField = textFields.first,
+                let content = firstTextField.text, {
+                    if !content.isEmpty {
+                    }
+                }
+            */
+        
             if let content = alert.textFields?.first?.text, !content.isEmpty {
                 self?.viewModel.addMemo(content: content)
                 self?.tableView.reloadData()
@@ -101,15 +111,18 @@ class ViewController: UIViewController {
         
         alert.addAction(addAction)
         alert.addAction(cancelAction)
+        // show the alert view controller to this view controller
         self.present(alert, animated: true, completion: nil)
     }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
+     // Return the number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.memos.count
     }
     
+    // Asks the data source for a cell to insert in a particular location of the table view
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         

@@ -9,6 +9,7 @@ import UIKit
 import Combine
 
 class MemoViewModel : ObservableObject {
+    // @Published -> property wrapper
     @Published private(set) var memos: [Memo] = []
     private let storageService: StorageManageServiceProtocol
     private var cancellables = Set<AnyCancellable>()    // Combine -> subscription managing
