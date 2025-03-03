@@ -30,8 +30,10 @@ I have not deeply studied and learn what to do
 
 ## Mobile Dev
 * Swift
+* react-native
 
 ## Computer Graphics w Metal
 1. Render Pipeline (Hello, Triangle)
 2. Constant Buffer
 3. Texture
+4. Transformation
