@@ -21,3 +21,4 @@
 * [TableView Setup](https://medium.com/@sarinyaswift/easy-tableview-setup-tutorial-swift-4-ad48ec4cbd45)
 * [Insert Icon as Image](https://www.youtube.com/watch?v=Giq8jRnh0Gk&t=396s&ab_channel=SwiftfulThinking)
 * [Save App Data with UserDefault](https://www.youtube.com/watch?v=1QOLiELlpGk&t=529s&ab_channel=SwiftfulThinking)
+* [MVVM](https://github.com/cristydobson/CryptoMarket_iOS_MVVM_Combine/tree/main)

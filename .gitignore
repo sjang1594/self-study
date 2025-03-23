@@ -3,6 +3,21 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+# Dependencies for javascripts
+*/node_modules/
+*/package-lock.json
+*/build/
+*/dist/
+*/yarn.lock
+
+# Log javascripts
+*/*.log
+*/npm-debug.log*
+*/.vscode/
+*/.idea/
+*/.DS_Store
+*/.parcel-cache/
+
 # User-specific files
 *.rsuser
 *.suo
@@ -407,3 +422,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+node_modules/

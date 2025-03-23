@@ -1,0 +1,17 @@
+{
+  "name": "project_init",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "parcel ./index.html",
+    "build": "parcel build ./index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "parcel": "^2.14.1"
+  }
+}
