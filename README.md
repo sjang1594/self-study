@@ -9,9 +9,8 @@ This is a self-study repository! I am recording what I learned and what I'm inte
 <br/>
 <br/>
 
-## OpenCV & Image Processing in Python
-
-## Pytorch
+## Pytorch / CUDA Programming
+1. CUDA Programming Basics
 
 ## Game Development
 1. Assembly Language
@@ -24,9 +23,6 @@ This is a self-study repository! I am recording what I learned and what I'm inte
 
 ## ROS (Drone / Sensor Develop)
 This covers not only the ROS(Robotic Operating System), but includes some of important concept developing ROS Framework.
-
-## Kubernetes
-I have not deeply studied and learn what to do 
 
 ## Mobile Dev
 * Swift
