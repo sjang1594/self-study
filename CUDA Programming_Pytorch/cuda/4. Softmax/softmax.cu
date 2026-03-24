@@ -80,7 +80,7 @@ __global__ void softmax_pass3_global(float* out, float inv_sum, int N)
 }
 
 // Normalize
-__global__ void softmax_pass3_per_row(float* out, float* row_sum, int N) 
+__global__ void softmax_pass3_per_row(float* out, float* row_sum, int N)
 {
 	int idx = blockIdx.x * blockDim.x + threadIdx.x;
 	if (idx < N)
@@ -88,25 +88,54 @@ __global__ void softmax_pass3_per_row(float* out, float* row_sum, int N)
 }
 
 // Online Softmax
-__global__ void softmax_online(const float* in, float* out, int N) 
+__global__ void softmax_online(const float* in, float* out, int N)
 {
 	__shared__ float s_x[BLOCK_SIZE];
 
 	int tid = threadIdx.x;
-	int base = blockIdx.x * N; // 
+	int base = blockIdx.x * N;
 
 	float running_max = -INFINITY;
 	float running_sum = 0.0f;
 
-	for (int i = tid; i < N; i+=BLOCK_SIZE) {
+	for (int i = tid; i < N; i += BLOCK_SIZE) {
 		float xi = in[base + i];
 		float new_max = fmaxf(running_max, xi);
 		running_sum = running_sum * expf(running_max - new_max) + expf(xi - new_max);
 		running_max = new_max;
 	}
+
+	__shared__ float s_max[BLOCK_SIZE];
+	__shared__ float s_sum[BLOCK_SIZE];
+
+	s_max[tid] = running_max;
+	s_sum[tid] = running_sum;
+
+	__syncthreads();
+
+	for (int i = BLOCK_SIZE * 0.5; i > 0; i >>= 1) {
+		if (tid < i) {
+			float m1 = s_max[tid], m2 = s_max[tid + i];
+			float s1 = s_sum[tid], s2 = s_sum[tid + i];
+
+			float n_m = fmaxf(m1, m2);
+			float n_s = s1 * expf(m1 - n_m) + s2 * expf(m2 - n_m);
+			s_max[tid] = n_m;
+			s_sum[tid] = n_s;
+		}
+
+		__syncthreads();
+	}
+
+	float global_max = s_max[0];
+	float global_sum = s_sum[0];
+
+	for (int i = tid; i < N; i += BLOCK_SIZE) {
+		out[base + i] = expf(in[base + i] - global_max) / global_sum;
+	}
 }
 
-void softmax_naive_global(const float* d_in, float* d_out, int N) 
+void softmax_naive_global(const float* d_in, float* d_out, int N)
 {
 	int threads = BLOCK_SIZE;
 	int blocks = (N + threads - 1) / threads; // GridDim = 1024, BlockDim = 256
@@ -118,7 +147,7 @@ void softmax_naive_global(const float* d_in, float* d_out, int N)
 	float* h_block_max = (float*)malloc(blocks * sizeof(float));
 	cudaMemcpy(h_block_max, d_block_max, blocks * sizeof(float), cudaMemcpyDeviceToHost);
 	float global_max = -INFINITY;
-	
+
 	for (int i = 0; i < blocks; i++)
 		global_max = fmaxf(global_max, h_block_max[i]);
 
@@ -146,7 +175,7 @@ void softmax_naive_per_row(const float* d_in, float* d_out, int rows, int cols) 
 	cudaMalloc(&d_row_max, blocks * sizeof(float));
 	cudaMalloc(&d_row_sum, blocks * sizeof(float));
 
-	softmax_pass1<<<blocks, threads>>>(d_in, d_row_max, N);
+	softmax_pass1 << <blocks, threads >> > (d_in, d_row_max, N);
 	softmax_pass2_per_row << <blocks, threads >> > (d_in, d_out, d_row_max, N);
 	softmax_sum_per_row << < blocks, threads >> > (d_out, d_row_sum, N);
 	softmax_pass3_per_row << <blocks, threads >> > (d_out, d_row_sum, N);
@@ -182,7 +211,7 @@ void softmax_cpu_per_row(const float* in, float* out, int rows, int cols)
 	}
 }
 
-bool verify(const float* ref, const float* got, int n, float eps = 1e-4f) 
+bool verify(const float* ref, const float* got, int n, float eps = 1e-4f)
 {
 	for (int i = 0; i < n; i++) {
 		if (fabsf(ref[i] - got[i]) > eps) {
@@ -200,7 +229,7 @@ int main()
 	printf("Softmax Kernel\n");
 	printf("Batch Size: %d, Sequence Length: %d\n", blockInfo.rows, blockInfo.cols);
 	printf("Data Size: %.1f bytes\n", blockInfo.bytes / 1e6f);
-	
+
 	printf("\n=== Memory Access per kernel call ===\n");
 	printf("  V1 Naive  : ~%.1f MB  (3 passes)\n", 3.0f * blockInfo.bytes / 1e6f);
 	printf("  V2 Online : ~%.1f MB  (1 pass read + 1 pass write)\n", 2.0f * blockInfo.bytes / 1e6f);
@@ -266,7 +295,7 @@ int main()
 
 	cudaEventRecord(start);
 	for (int i = 0; i < RUNS; i++) {
-		softmax_online << <blocks_online, thread_online >> > (d_in, d_out, N);
+		softmax_online << <blocks_online, threads_online >> > (d_in, d_out, blockInfo.cols);
 	}
 	cudaEventRecord(stop);
 	cudaEventSynchronize(stop);
@@ -278,6 +307,7 @@ int main()
 	printf(" V1 Online : %.3f ms\n", t_online);
 
 	ok = verify(h_ref_per_row, h_out, blockInfo.n);
+	printf(" V1 Online : %.3f ms  %s\n", t_online, ok ? "PASS" : "FAIL");
 
 	cudaFree(d_in);
 	cudaFree(d_out);
