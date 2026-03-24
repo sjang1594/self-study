@@ -293,6 +293,7 @@ int main()
 	dim3 threads_online(BLOCK_SIZE);
 	dim3 blocks_online(blockInfo.rows);
 
+    printf("\n=== Online Softmax ===\n");
 	cudaEventRecord(start);
 	for (int i = 0; i < RUNS; i++) {
 		softmax_online << <blocks_online, threads_online >> > (d_in, d_out, blockInfo.cols);
