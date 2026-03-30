@@ -176,8 +176,7 @@ int main()
     printf("    => all 32 threads => same bank => 32-way conflict\n");
     printf("  tile[TILE][TILE+1] : bank(i) = (tx * 33 + ty) %% 32 = (tx + ty) %% 32\n");
     printf("    => 32 threads => banks 0..31 => 0 conflicts\n");
-    printf("  Padding cost: %zu bytes/block (negligible)\n",
-        TILE_DIM * 1 * sizeof(float));
+    printf("  Padding cost: %zu bytes/block (negligible)\n", TILE_DIM * 1 * sizeof(float));
         
     cudaEventDestroy(start);
     cudaEventDestroy(stop);
