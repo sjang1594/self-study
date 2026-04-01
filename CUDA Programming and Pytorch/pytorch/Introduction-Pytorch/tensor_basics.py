@@ -32,13 +32,12 @@ def tensor_basics() -> None:
     print(f"After continugous copy {nhwc_c.is_contiguous()}")
     print(f"pixel [n=0][h=2][w=3][c=1] at offset: {0*nhwc_c.stride(0) + 2*nhwc_c.stride(1) + 3*nhwc_c.stride(2) + 1*nhwc_c.stride(3)}")
 
-
     print(f"\n  Key difference for CUDA kernels:")
-    print(f"NCHW (stride={list(nchw.stride())}): 마지막 차원 W가 stride=1 → 스레드가 W 방향으로 읽으면 coalesced")
-    print(f"반면 C 방향은 stride=H*W={8*8} → 멀리 뛰어야 해서 non-coalesced")
-    print(f"NHWC (stride={list(nhwc_c.stride())}): 마지막 차원 C가 stride=1 → 스레드가 C 방향으로 읽으면 coalesced")
-    print(f"반면 W 방향은 stride=C=3 → non-coalesced")
-    print(f"어느 차원을 병렬로 처리하느냐에 따라 유리한 레이아웃이 다름")
+    print(f"NCHW (stride={list(nchw.stride())}): the last dimension W has stride=1 → threads reading along W are coalesced")
+    print(f"In contrast, the C dimension has stride=H*W={8*8} → requires large jumps, resulting in non-coalesced access")
+    print(f"NHWC (stride={list(nhwc_c.stride())}): the last dimension C has stride=1 → threads reading along C are coalesced")
+    print(f"In contrast, the W dimension has stride=C=3 → non-coalesced")
+    print(f"The optimal layout depends on which dimension is processed in parallel")
 
     print_sep("4. contiguous() — when CUDA kernels need it")
     t_nc = nchw.permute(0, 2, 3, 1)
