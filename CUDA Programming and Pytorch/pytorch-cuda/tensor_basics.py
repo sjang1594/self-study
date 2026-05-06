@@ -15,8 +15,5 @@ def tensor_basics() -> None:
     print(f"shape : {a.shape}")
     print(f"numel : {a.numel()}") # number of element
 
-
-    
-
 if __name__ == "__main__":
     tensor_basics()
