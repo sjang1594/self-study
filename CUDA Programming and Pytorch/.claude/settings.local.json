@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.venv\\\\Scripts\\\\pip install *)",
+      "PowerShell(& \"C:\\\\Users\\\\skcjf\\\\project\\\\self-study\\\\CUDA Programming and Pytorch\\\\pytorch\\\\.venv\\\\Scripts\\\\pip.exe\" install matplotlib)",
+      "PowerShell(& \"C:\\\\Users\\\\skcjf\\\\project\\\\self-study\\\\CUDA Programming and Pytorch\\\\pytorch\\\\.venv\\\\Scripts\\\\python.exe\" -m pip install matplotlib 2>&1)",
+      "PowerShell(& \"C:\\\\Users\\\\skcjf\\\\project\\\\self-study\\\\CUDA Programming and Pytorch\\\\pytorch\\\\.venv\\\\Scripts\\\\python.exe\" -m jupyter kernelspec list 2>&1)",
+      "PowerShell(& \"C:\\\\Users\\\\skcjf\\\\project\\\\self-study\\\\CUDA Programming and Pytorch\\\\pytorch\\\\.venv\\\\Scripts\\\\python.exe\" -m ipykernel install --user --name pytorch-venv --display-name \"Python \\(pytorch-venv\\)\" 2>&1)"
+    ]
+  }
+}
